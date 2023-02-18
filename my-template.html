@@ -6,7 +6,7 @@
     <title>My CV</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: serif;
             font-size: 16px;
             line-height: 1.5;
             color: #222;
@@ -20,13 +20,22 @@
         h1 {
             font-size: 32px;
             color: #005B9C;
+            font-weight: bold;
+            margin-left: 15px;
         }
 
         h2 {
             font-size: 24px;
-            color: #D71920;
+            color: #005B9C;
+            margin-bottom: 5px;
+            margin-top: 20px;
         }
-
+        h3 {
+            font-size: 24px;
+            color: #D71920;
+            margin-top: 1px;
+            font-weight: normal;
+        }
         p, ul, li {
             margin: 0;
         }
@@ -87,6 +96,47 @@
             margin: 0.25em;
             border-radius: 0.25em;
         }
+        .secondary{
+          color: #005B9C;
+        }
+     
+        #secondary-tag{
+            color:#D71920; 
+            font-weight: bold;
+          }
+        .institution{
+          color: #005B9C;
+        }
+        .company{
+          color: #005B9C;
+        }
+        .ul{
+          color: #005B9C;
+        }
+        .degree{
+          display: inline;
+        }
+        .institution{
+          display: inline;
+        }
+        .date{
+          display: inline;
+        }
+        
+        .position{
+          display: inline;
+        }
+        .company{
+          display: inline;
+        }
+        .skill-name,.skill-desc{
+          display: inline;
+        }
+        .skill-desc,.res{
+          color: #005B9C;
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -96,25 +146,23 @@
 
       <div class="contact">
         $if(email)$
-        <p class="secondary"><span>Email:</span> $email$</p>
+        <p class="secondary"><span id="secondary-tag">Email:</span> $email$</p>
         $endif$
 
         $if(phone)$
-        <p class="secondary"><span>Phone:</span> $phone$</p>
+        <p class="secondary"><span id="secondary-tag">Phone:</span> $phone$</p>
         $endif$
 
         $if(address)$
-        <p class="secondary"><span>Address:</span> $for(address)$$address$$sep$, $endfor$</p>
+        <p class="secondary"><span id="secondary-tag">Address:</span> $for(address)$$address$$sep$, $endfor$</p>
         $endif$
       </div>
 
       <div class="education">
         <h2 class="section-header">Education</h2>
         $for(education)$
-        <div class="item">
-          <h3 class="degree">$education.degree$</h3>
-          <p class="institution">$education.institution$</p>
-          <p class="date">$education.year$</p>
+        <div class="edu-item">
+          <h3 class="degree">$education.degree$</h3>, <p class="institution">$education.institution$</p>, <p class="date">$education.year$</p>
         </div>
         $endfor$
       </div>
@@ -128,7 +176,7 @@
           <p class="date">$experience.date$</p>
           <ul>
             $for(experience.responsibilities)$
-            <li>$experience.responsibilities$</li>
+            <li class="res">$experience.responsibilities$</li>
             $endfor$
           </ul>
         </div>
@@ -140,7 +188,7 @@
         $for(publications)$
         <div class="item">
           <h3 class="title">$publications.title$</h3>
-          <p class="authors">$publications.authors$</p>
+          <p class="authors"> $publications.authors$ , </p>
           <p class="conference">$publications.conference$</p>
           $if(publications.doi)$
           <p class="doi">DOI: <a href="https://doi.org/$publications.doi$">$publications.doi$</a></p>
@@ -150,11 +198,11 @@
       </div>
 
       <div class="skills">
-        <h2 class="section-header">Skills</h2>
+        <h2 class="skills-header">Skills</h2>
         $for(skills)$
         <div class="item">
-          <h3 class="name">$skills.name$</h3>
-          <p class="keywords">$for(skills.keywords)$$skills.keywords$$sep$, $endfor$</p>
+          <h3 class="skill-name">$skills.name$</h3>
+          <p class="skill-desc">$for(skills.keywords)$$skills.keywords$$sep$, $endfor$</p>
         </div>
         $endfor$
       </div>

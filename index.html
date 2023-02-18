@@ -6,7 +6,7 @@
     <title>My CV</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: serif;
             font-size: 16px;
             line-height: 1.5;
             color: #222;
@@ -20,13 +20,22 @@
         h1 {
             font-size: 32px;
             color: #005B9C;
+            font-weight: bold;
+            margin-left: 15px;
         }
 
         h2 {
             font-size: 24px;
-            color: #D71920;
+            color: #005B9C;
+            margin-bottom: 5px;
+            margin-top: 20px;
         }
-
+        h3 {
+            font-size: 24px;
+            color: #D71920;
+            margin-top: 1px;
+            font-weight: normal;
+        }
         p, ul, li {
             margin: 0;
         }
@@ -87,6 +96,47 @@
             margin: 0.25em;
             border-radius: 0.25em;
         }
+        .secondary{
+          color: #005B9C;
+        }
+     
+        #secondary-tag{
+            color:#D71920; 
+            font-weight: bold;
+          }
+        .institution{
+          color: #005B9C;
+        }
+        .company{
+          color: #005B9C;
+        }
+        .ul{
+          color: #005B9C;
+        }
+        .degree{
+          display: inline;
+        }
+        .institution{
+          display: inline;
+        }
+        .date{
+          display: inline;
+        }
+        
+        .position{
+          display: inline;
+        }
+        .company{
+          display: inline;
+        }
+        .skill-name,.skill-desc{
+          display: inline;
+        }
+        .skill-desc,.res{
+          color: #005B9C;
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -95,24 +145,20 @@
       <h1 class="name">Mary Samanta</h1>
 
       <div class="contact">
-                <p class="secondary"><span>Email:</span> samantam1717@gmail.com</p>
+                <p class="secondary"><span id="secondary-tag">Email:</span> samantam1717@gmail.com</p>
         
-                <p class="secondary"><span>Phone:</span> 6911111111</p>
+                <p class="secondary"><span id="secondary-tag">Phone:</span> 6911111111</p>
         
-                <p class="secondary"><span>Address:</span> Patras</p>
+                <p class="secondary"><span id="secondary-tag">Address:</span> Patras</p>
               </div>
 
       <div class="education">
         <h2 class="section-header">Education</h2>
-                <div class="item">
-          <h3 class="degree">Software Engineer &amp; Informatics Department (CEID)</h3>
-          <p class="institution">University of Patras</p>
-          <p class="date">2022</p>
+                <div class="edu-item">
+          <h3 class="degree">Software Engineer &amp; Informatics Department (CEID)</h3>, <p class="institution">University of Patras</p>, <p class="date">2022</p>
         </div>
-                <div class="item">
-          <h3 class="degree">Master Human - Computer Interaction (HCI) (in progress)</h3>
-          <p class="institution">University of Patras</p>
-          <p class="date">2022</p>
+                <div class="edu-item">
+          <h3 class="degree">Master Human - Computer Interaction (HCI) (in progress)</h3>, <p class="institution">University of Patras</p>, <p class="date">2022</p>
         </div>
               </div>
 
@@ -123,7 +169,7 @@
           <p class="company">Citrix</p>
           <p class="date">Mar. 2021 - Sep. 2021</p>
           <ul>
-                        <li>Took over and completed a full migration of the Synthetic Monitors of the Citrix Cloud Identity team.</li>
+                        <li class="res">Took over and completed a full migration of the Synthetic Monitors of the Citrix Cloud Identity team.</li>
                       </ul>
         </div>
                 <div class="item">
@@ -131,7 +177,7 @@
           <p class="company">Citrix</p>
           <p class="date">July 2022 - Present</p>
           <ul>
-                        <li>Member of the Citrix Cloud Identity team.</li>
+                        <li class="res">Member of the Citrix Cloud Identity team.</li>
                       </ul>
         </div>
               </div>
@@ -140,25 +186,25 @@
         <h2 class="section-header">Publications</h2>
                 <div class="item">
           <h3 class="title">Evaluating a Game-based and a Web-based User Interface Using Skin Conductivity Signals and Gamers and Non-Gamers Preferences</h3>
-          <p class="authors">Andreas MallasMaria SamantaMichalis Xenos</p>
+          <p class="authors"> Andreas MallasMaria SamantaMichalis Xenos , </p>
           <p class="conference">2022 International Conference on Engineering and Emerging Technologies (ICEET)</p>
                     <p class="doi">DOI: <a href="https://doi.org/10.1109/ICEET56468.2022.10007413">10.1109/ICEET56468.2022.10007413</a></p>
                   </div>
               </div>
 
       <div class="skills">
-        <h2 class="section-header">Skills</h2>
+        <h2 class="skills-header">Skills</h2>
                 <div class="item">
-          <h3 class="name">Programming Languages</h3>
-          <p class="keywords">Java, JavaScript, C, C++, c#</p>
+          <h3 class="skill-name">Programming Languages</h3>
+          <p class="skill-desc">Java, JavaScript, C, C++, c#</p>
         </div>
                 <div class="item">
-          <h3 class="name">Frameworks</h3>
-          <p class="keywords">React, Spring, Django</p>
+          <h3 class="skill-name">Frameworks</h3>
+          <p class="skill-desc">React, Spring, Django</p>
         </div>
                 <div class="item">
-          <h3 class="name">Other Skills</h3>
-          <p class="keywords">Agile Development, Git, SQL, Adobe Photoshop, Lightroom, AE, Premiere</p>
+          <h3 class="skill-name">Other Skills</h3>
+          <p class="skill-desc">Agile Development, Git, SQL, Adobe Photoshop, Lightroom, AE, Premiere</p>
         </div>
               </div>
     </section>
