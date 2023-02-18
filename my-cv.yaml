@@ -29,6 +29,15 @@ skills:
     keywords: React, Spring, Django
   - name: Other Skills
     keywords: Agile Development, Git, SQL, Adobe Photoshop, Lightroom, AE, Premiere
+publications:
+  - title: Evaluating a Game-based and a Web-based User Interface Using Skin Conductivity Signals and Gamers and Non-Gamers Preferences
+    authors:
+      - Andreas Mallas
+      - Maria Samanta
+      - Michalis Xenos
+    conference: 2022 International Conference on Engineering and Emerging Technologies (ICEET)
+    year: 2022
+    doi: "10.1109/ICEET56468.2022.10007413"
 ---
 
 # Mary Samanta
@@ -59,4 +68,22 @@ $endfor$
 
 $for(skills)$
 - $skills.name$: $for(skills.keywords)$$skills.keywords$$sep$, $endfor$
+$endfor$
+
+## Publications
+
+$for(publications)$
+### $publications.title$
+$for(publications.authors)$
+- $publications.authors$
+$endfor$
+$if(publications.conference)$
+- $publications.conference$
+$endif$
+$if(publications.year)$
+- $publications.year$
+$endif$
+$if(publications.doi)$
+- DOI: [$publications.doi$](https://doi.org/$publications.doi$)
+$endif$
 $endfor$

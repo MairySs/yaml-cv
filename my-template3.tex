@@ -10,6 +10,7 @@
 \usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{pgffor}
+\usepackage{hyperref}
 \setlist{nosep}
 
 % Define a custom command for formatting the section headers
@@ -20,6 +21,9 @@
 
 % Define a custom command for formatting the experience entries
 \newcommand{\cvexperience}[4]{\noindent{\color{secondary}\textbf{#1}}, {\color{primary}\emph{#2}}, #3\par#4\vspace{0.5em}}
+
+% Define a custom command for formatting the publication entries
+\newcommand{\cvpublication}[4]{\noindent{\color{secondary}\textbf{#1}}, {\color{primary}\emph{#2}}, #3, DOI: \href{https://doi.org/#4}{#4}\par}
 
 \newcommand{\cvskills}[2]{\noindent{\color{secondary}\textbf{#1:}} {\color{primary}#2}\par}
 
@@ -57,6 +61,12 @@ $for(experience)$
 \cvexperience{$experience.position$}{$experience.company$}{$experience.date$}{$for(experience.responsibilities)$\begin{itemize}[label={\color{secondary}--}]
 \item {\color{primary}$experience.responsibilities$}
 \end{itemize}$endfor$}
+$endfor$
+
+\cvsection{Publications}
+
+$for(publications)$
+\cvpublication{$publications.title$}{$publications.authors$}{$publications.conference$}{$publications.doi$}
 $endfor$
 
 \cvsection{Skills}
