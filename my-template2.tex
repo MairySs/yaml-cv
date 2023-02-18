@@ -1,0 +1,58 @@
+\documentclass{article}
+
+% Adjust the margins and spacing as needed
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Define a custom command for formatting the section headers
+\newcommand{\cvsection}[1]{\vspace{0.5em}\noindent\textbf{\large #1}\par}
+
+% Define a custom command for formatting the education entries
+\newcommand{\cveducation}[3]{\noindent\textbf{#1}, \emph{#2}, #3\par}
+
+% Define a custom command for formatting the experience entries
+\newcommand{\cvexperience}[4]{\noindent\textbf{#1}, \emph{#2}, #3\par#4\vspace{0.5em}}
+
+\begin{document}
+
+$if(name)$
+\section*{$name$}
+$endif$
+
+$if(email)$
+\noindent\textbf{Email:} $email$\par
+$endif$
+
+$if(phone)$
+\noindent\textbf{Phone:} $phone$\par
+$endif$
+
+$if(address)$
+\noindent\textbf{Address:} $for(address)$$address$$sep$, $endfor$\par
+$endif$
+
+\cvsection{Education}
+
+$for(education)$
+\cveducation{$education.degree$}{$education.institution$}{$education.year$}
+$endfor$
+
+\cvsection{Experience}
+
+$for(experience)$
+\cvexperience{$experience.position$}{$experience.company$}{$experience.date$}{$for(experience.responsibilities)$\begin{itemize}[label={--}]
+\item $experience.responsibilities$
+\end{itemize}$endfor$}
+$endfor$
+
+$if(skills)$
+\cvsection{Skills}
+$for(skills)$
+\begin{itemize}[label={--}]
+\item $skills$
+\end{itemize}
+$endfor$
+$endif$
+
+\end{document}

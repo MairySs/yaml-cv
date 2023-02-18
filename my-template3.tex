@@ -1,0 +1,65 @@
+\documentclass{article}
+
+% Define custom colors for the document
+\usepackage{xcolor}
+\definecolor{primary}{HTML}{005B9C}
+\definecolor{secondary}{HTML}{D71920}
+
+% Adjust the margins and spacing as needed
+\usepackage[top=0.75in, bottom=0.75in, left=0.75in, right=0.75in]{geometry}
+\usepackage{enumitem}
+\setlist{nosep}
+
+% Define a custom command for formatting the section headers
+\newcommand{\cvsection}[1]{\vspace{1em}\noindent{\color{primary}\textbf{\large #1}}\par}
+
+% Define a custom command for formatting the education entries
+\newcommand{\cveducation}[3]{\noindent{\color{secondary}\textbf{#1}}, {\color{primary}\emph{#2}}, #3\par}
+
+% Define a custom command for formatting the experience entries
+\newcommand{\cvexperience}[4]{\noindent{\color{secondary}\textbf{#1}}, {\color{primary}\emph{#2}}, #3\par#4\vspace{0.5em}}
+
+\begin{document}
+
+\pagestyle{empty}
+
+$if(name)$
+{\color{primary}\huge\textbf{$name$}}\par
+$endif$
+
+$if(email)$
+\noindent{\color{secondary}\textbf{Email:}} {\color{primary}$email$}\par
+$endif$
+
+$if(phone)$
+\noindent{\color{secondary}\textbf{Phone:}} {\color{primary}$phone$}\par
+$endif$
+
+$if(address)$
+\noindent{\color{secondary}\textbf{Address:}} {\color{primary}$for(address)$$address$$sep$, $endfor$}\par
+$endif$
+
+\vspace{1em}
+
+\cvsection{Education}
+
+$for(education)$
+\cveducation{$education.degree$}{$education.institution$}{$education.year$}
+$endfor$
+
+\cvsection{Experience}
+
+$for(experience)$
+\cvexperience{$experience.position$}{$experience.company$}{$experience.date$}{$for(experience.responsibilities)$\begin{itemize}[label={\color{secondary}--}]
+\item {\color{primary}$experience.responsibilities$}
+\end{itemize}$endfor$}
+$endfor$
+
+$if(skills)$
+\cvsection{Skills}
+$for(skills)$
+{\color{primary}$skills$}
+$endfor$
+$endif$
+
+\end{document}

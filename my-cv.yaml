@@ -1,0 +1,63 @@
+---
+name: John Smith
+email: john.smith@example.com
+phone: (123) 456-7890
+address:
+  - 123 Main St
+  - Anytown, USA
+education:
+  - degree: Bachelor of Science in Computer Science
+    institution: Anytown University
+    year: 2014
+  - degree: Master of Science in Computer Science
+    institution: Anytown University
+    year: 2016
+experience:
+  - position: Software Engineer
+    company: Acme Corporation
+    date: January 2017 - Present
+    responsibilities:
+      - Designed and implemented new features for Acme's flagship product
+      - Optimized application performance and reduced server load by 25%
+      - Worked collaboratively with team members to resolve technical issues
+  - position: Junior Software Engineer
+    company: Beta Corporation
+    date: June 2015 - December 2016
+    responsibilities:
+      - Developed new features for Beta's mobile app
+      - Troubleshot and resolved customer issues
+skills:
+  - Programming Languages: Java, Python, JavaScript
+  - Frameworks: React, Spring, Django
+  - Other Skills: Agile Development, Git, SQL
+---
+
+# John Smith
+
+## Contact Information
+
+- Email: $email$
+- Phone: $phone$
+- Address: $for(item)$$item$$sep$, $endfor$
+
+## Education
+
+$for(education)$
+- $education.degree$, $education.institution$, $education.year$
+$endfor$
+
+## Experience
+
+$for(experience)$
+### $experience.position$, $experience.company$
+*$experience.date$
+$for(experience.responsibilities)$
+- $experience.responsibilities$
+$endfor$
+$endfor$
+
+## Skills
+
+$for(skills)$
+- $skills$
+$endfor$

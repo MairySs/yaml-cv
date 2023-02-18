@@ -1,0 +1,39 @@
+---
+header-includes:
+  - \usepackage{geometry}
+  - \usepackage{titlesec}
+  - \usepackage{titling}
+  - \usepackage{fancyhdr}
+  - \usepackage{color}
+  - \usepackage{hyperref}
+  - \usepackage{fontspec}
+  - \setmainfont{Times New Roman}
+  - \geometry{margin=1in}
+output:
+  pdf_document:
+    latex_engine: xelatex
+---
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{gray}{\small\thetitle}}
+\fancyfoot[C]{\thepage}
+
+\renewcommand{\maketitle}{
+  \begin{center}
+    {\LARGE\thetitle} \vspace{5pt} \\
+    \theauthor \\ \vspace{5pt}
+    \thedate
+  \end{center}
+  \vspace{10pt}
+}
+
+\title{\Huge My Document Title}
+\author{My Name}
+\date{\today}
+
+\begin{document}
+
+$body$
+
+\end{document}
