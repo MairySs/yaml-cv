@@ -1,162 +1,163 @@
-$if(title)$
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>$title$</title>
-<style>
-/* Define colors */
-:root {
-  --primary: #003E54;
-  --secondary: #216583;
-  --light: #F4F4F4;
-  --dark: #272727;
-}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My CV</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #222;
+        }
 
-/* Define custom CSS */
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            font-weight: bold;
+        }
 
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  font-weight: normal;
-}
+        h1 {
+            font-size: 32px;
+            color: #005B9C;
+        }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
+        h2 {s
+            font-size: 24px;
+            color: #D71920;
+        }
 
-section {
-  margin-bottom: 20px;
-}
+        p, ul, li {
+            margin: 0;
+        }
 
-h1 {
-  font-size: 32px;
-  color: var(--primary);
-}
+        .cv-section {
+            margin-top: 1em;
+        }
 
-h2 {
-  font-size: 28px;
-  color: var(--primary);
-}
+        .cv-section-heading {
+            font-size: 24px;
+            color: #005B9C;
+            margin-bottom: 0.5em;
+        }
 
-h3 {
-  font-size: 24px;
-  color: var(--secondary);
-}
+        .cv-section-subheading {
+            font-size: 18px;
+            color: #D71920;
+            font-style: italic;
+            margin-bottom: 0.25em;
+        }
 
-.timeline {
-  position: relative;
-  margin: 20px 0;
-}
+        .cv-section-content {
+            margin-bottom: 1em;
+        }
 
-.timeline::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background-color: var(--secondary);
-  transform: translateX(-50%);
-}
+        .cv-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-.timeline-entry {
-  position: relative;
-  margin-bottom: 30px;
-}
+        .cv-list-item:before {
+            content: "-";
+            color: #D71920;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.5em;
+            margin-left: -1.5em;
+        }
 
-.timeline-entry:last-child {
-  margin-bottom: 0;
-}
+        .cv-skills-heading {
+            font-size: 24px;
+            color: #D71920;
+            margin-bottom: 0.5em;
+        }
 
-.timeline-entry::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  background-color: var(--primary);
-  border: 2px solid var(--light);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-}
+        .cv-skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
 
-.timeline-entry .entry-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+        .cv-skills-item {
+            background-color: #005B9C;
+            color: #fff;
+            padding: 0.25em 0.5em;
+            margin: 0.25em;
+            border-radius: 0.25em;
+        }
+    </style>
+</head>
+<body>
+  <div class="wrapper">
+    <section>
+      <h1 class="name">$name$</h1>
 
-.timeline-entry .entry-header h4 {
-  margin-bottom: 0;
-  color: var(--dark);
-}
+      <div class="contact">
+        $if(email)$
+        <p class="secondary"><span>Email:</span> $email$</p>
+        $endif$
 
-.timeline-entry .entry-header h5 {
-  margin-top: 0;
-  color: var(--secondary);
-}
+        $if(phone)$
+        <p class="secondary"><span>Phone:</span> $phone$</p>
+        $endif$
 
-.timeline-entry .entry-content {
-  margin-left: 40px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+        $if(address)$
+        <p class="secondary"><span>Address:</span> $for(address)$$address$$sep$, $endfor$</p>
+        $endif$
+      </div>
 
-.timeline-entry .entry-content p {
-  margin: 0;
-  color: var(--dark);
-}
+      <div class="education">
+        <h2 class="section-header">Education</h2>
+        $for(education)$
+        <div class="item">
+          <h3 class="degree">$education.degree$</h3>
+          <p class="institution">$education.institution$</p>
+          <p class="date">$education.year$</p>
+        </div>
+        $endfor$
+      </div>
 
-.cv-education-entry {
-  margin-bottom: 20px;
-}
+      <div class="experience">
+        <h2 class="section-header">Experience</h2>
+        $for(experience)$
+        <div class="item">
+          <h3 class="position">$experience.position$</h3>
+          <p class="company">$experience.company$</p>
+          <p class="date">$experience.date$</p>
+          <ul>
+            $for(experience.responsibilities)$
+            <li>$experience.responsibilities$</li>
+            $endfor$
+          </ul>
+        </div>
+        $endfor$
+      </div>
 
-.cv-education-entry h4 {
-  margin-bottom: 0;
-  color: var(--secondary);
-}
+      <div class="publications">
+        <h2 class="section-header">Publications</h2>
+        $for(publications)$
+        <div class="item">
+          <h3 class="title">$publications.title$</h3>
+          <p class="authors">$publications.authors$</p>
+          <p class="conference">$publications.conference$</p>
+          $if(publications.doi)$
+          <p class="doi">DOI: <a href="https://doi.org/$publications.doi$">$publications.doi$</a></p>
+          $endif$
+        </div>
+        $endfor$
+      </div>
 
-.cv-education-entry p {
-  margin-top: 5px;
-  margin-bottom: 0;
-}
-
-.cv-experience-entry {
-  margin-bottom: 20px;
-}
-
-.cv-experience-entry h4 {
-  margin-bottom: 0;
-  color: var(--secondary);
-}
-
-.cv-experience-entry h5 {
-  margin-top: 5px;
-  margin-bottom: 0;
-  color: var(--primary);
-}
-
-.cv-experience-entry p {
-  margin-top: 10px;
-  margin-bottom: 0;
-  color: var(--dark);
-}
-
-.cv-experience-entry ul {
-  margin-top: 5px;
-  margin-bottom: 0;
-  padding-left: 20px;
-  color: var(--dark);
-}
-
-.cv-experience-entry ul li {
-  margin-bottom: 5px;
-}
+      <div class="skills">
+        <h2 class="section-header">Skills</h2>
+        $for(skills)$
+        <div class="item">
+          <h3 class="name">$skills.name$</h3>
+          <p class="keywords">$for(skills.keywords)$$skills.keywords$$sep$, $endfor$</p>
+        </div>
+        $endfor$
+      </div>
+    </section>
+  </div>
+</body>
