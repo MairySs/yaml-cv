@@ -1,38 +1,37 @@
 ---
-name: John Smith
-email: john.smith@example.com
-phone: (123) 456-7890
+name: Mary Samanta
+email: samantam1717@gmail.com
+phone: 6911111111
 address:
-  - 123 Main St
-  - Anytown, USA
+  - Patras
 education:
-  - degree: Bachelor of Science in Computer Science
-    institution: Anytown University
-    year: 2014
-  - degree: Master of Science in Computer Science
-    institution: Anytown University
-    year: 2016
+  - degree: Software Engineer & Informatics Department (CEID)
+    institution: University of Patras
+    year: 2022
+  - degree: Master Human - Computer Interaction (HCI) (in progress)
+    institution: University of Patras
+    year: 2022
 experience:
-  - position: Software Engineer
-    company: Acme Corporation
-    date: January 2017 - Present
+  - position: Software Engineer Intern
+    company: Citrix
+    date: Mar. 2021 - Sep. 2021
     responsibilities:
-      - Designed and implemented new features for Acme's flagship product
-      - Optimized application performance and reduced server load by 25%
-      - Worked collaboratively with team members to resolve technical issues
-  - position: Junior Software Engineer
-    company: Beta Corporation
-    date: June 2015 - December 2016
+      - Took over and completed a full migration of the Synthetic Monitors of the Citrix Cloud Identity team.
+  - position: Associate Software Engineer
+    company: Citrix
+    date: July 2022 - Present
     responsibilities:
-      - Developed new features for Beta's mobile app
-      - Troubleshot and resolved customer issues
+      - Member of the Citrix Cloud Identity team.
 skills:
-  - Programming Languages: Java, Python, JavaScript
-  - Frameworks: React, Spring, Django
-  - Other Skills: Agile Development, Git, SQL
+  - name: Programming Languages
+    keywords: Java, JavaScript, C, C++, c#
+  - name: Frameworks
+    keywords: React, Spring, Django
+  - name: Other Skills
+    keywords: Agile Development, Git, SQL, Adobe Photoshop, Lightroom, AE, Premiere
 ---
 
-# John Smith
+# Mary Samanta
 
 ## Contact Information
 
@@ -59,5 +58,5 @@ $endfor$
 ## Skills
 
 $for(skills)$
-- $skills$
+- $skills.name$: $for(skills.keywords)$$skills.keywords$$sep$, $endfor$
 $endfor$

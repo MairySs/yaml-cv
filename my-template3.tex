@@ -8,6 +8,8 @@
 % Adjust the margins and spacing as needed
 \usepackage[top=0.75in, bottom=0.75in, left=0.75in, right=0.75in]{geometry}
 \usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{pgffor}
 \setlist{nosep}
 
 % Define a custom command for formatting the section headers
@@ -18,6 +20,8 @@
 
 % Define a custom command for formatting the experience entries
 \newcommand{\cvexperience}[4]{\noindent{\color{secondary}\textbf{#1}}, {\color{primary}\emph{#2}}, #3\par#4\vspace{0.5em}}
+
+\newcommand{\cvskills}[2]{\noindent{\color{secondary}\textbf{#1:}} {\color{primary}#2}\par}
 
 \begin{document}
 
@@ -55,11 +59,10 @@ $for(experience)$
 \end{itemize}$endfor$}
 $endfor$
 
-$if(skills)$
 \cvsection{Skills}
+
 $for(skills)$
-{\color{primary}$skills$}
+\cvskills{$skills.name$}{$for(skills.keywords)$$skills.keywords$$sep$, $endfor$}
 $endfor$
-$endif$
 
 \end{document}
